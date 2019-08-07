@@ -60,6 +60,16 @@ header li{
     padding: 0 20px 0 20px;
 }
 
+#language{
+    color: antiquewhite;
+    text-transform: lowercase
+}
+
+#language a:hover{
+    color: aquamarine;
+    font-weight: bold；
+}
+
 header #branding{
     float: left;
 }
@@ -105,7 +115,7 @@ header a:hover{
 
 #join_us{
     width: 100%;
-    padding: 15px;
+    padding: 0px;
     color: #ffffff;
     background: #35424a ;
 }
