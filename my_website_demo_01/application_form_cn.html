@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Form Styling</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/form_stylesheet.css">
+    
+  </head>
+  <body>
+    <div id="container">
+      <div class="form-wrap">
+        <h1>Sign Up</h1>
+        <p>It's free and only takes a minute</p>
+        <form>
+          <div class="form-group">
+            <label for="original-name">Full Name in Original Language</label>
+            <input type="text" placeholder="王二狗" name="originalName" id="original-name" />
+          </div>
+          <div class="form-group">
+            <label for="english-name">Full Name in English</label>
+            <input type="text" placeholder="Wang Ergo" name="englishName" id="english-name" />
+          </div>
+          <div class="form-group">
+            <label for="nickname">Nickname</label>
+            <input type="text" placeholder="Wang Ergo" name="nickname" id="nickname" />
+          </div>
+          <div class="form-group">
+              <label for="gender">Gender</label>
+              <select name="gender" id="gender">
+                  <option value="">Male</option>
+                  <option value="">Female</option>
+                  <option value="">Other</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="age">Approximate age</label>
+              <select name="age" id="age">
+                  <option value="">13-14(primary school/secondary school)</option>
+                  <option value="">15-17(high school)</option>
+                  <option value="">18-24(under graduate)</option>
+                  <option value="">25-30</option>
+                  <option value="">31-40</option>
+                  <option value="">above 40</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label>Country</label>
+              <input type="text" placeholder="Singapore">
+          </div>
+          <div class="form-group">
+              <label>Province or State</label>
+              <input type="text" placeholder="Clementi">
+          </div>
+          <div class="form-group">
+              <label>Phone Number</label>
+              <input type="text" placeholder="please includ your country code!">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="myemail@example.com"/>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="text" placeholder="DD/MM/YYYY">
+        </div>
+          <div class="form-group">
+            <label for="" id="">Coaster Credit</label>
+            <input type="radio" id="30-70" name="coaster-credit">
+            <label for="30-70">30-70</label>
+            <input type="radio" id="70-100" name="coaster-credit">
+            <label for="70-100">70-100</label>
+            <input type="radio" id="100-150" name="coaster-credit">
+            <label for="100-150">100-150</label>
+            <input type="radio" id="150-200" name="coaster-credit">
+            <label for="150-200">150-200</label>
+            <input type="radio" id="200-300" name="coaster-credit">
+            <label for="200-300">200-300</label>
+            <input type="radio" id="above300" name="coaster-credit">
+            <label for="above300">Above 300</label>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input type="password" name="pasword2" id="password2" />
+          </div>
+          <button type="submit" class="btn">Sign Up</button>
+          <p class="bottom-text">
+            By clicking the Sign Up button, you agree to our
+            <a href="#">Terms & Conditions</a> and
+            <a href="#">Privacy Policy</a>
+          </p>
+        </form>
+      </div>
+      <footer>
+        <p>Already have an account? <a href="#">Login Here</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
