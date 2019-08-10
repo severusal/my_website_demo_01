@@ -13,6 +13,7 @@
 
   a {
     text-decoration: none;
+    color:white
   }
 
   #container {
@@ -41,7 +42,7 @@
   }
 
   .form-wrap .form-group label {
-    display: block;
+    display:block;
 
   }
 
@@ -50,7 +51,12 @@
     padding: 6px;
 
   }
-
+table .td1{
+  width: 20%;
+}
+table .td2{
+  width: 80%;
+}
   .form-wrap button {
     width: 100%;
     display: block;
