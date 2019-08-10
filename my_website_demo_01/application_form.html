@@ -17,7 +17,7 @@
       <div class="form-wrap">
         <h1>Sign Up</h1>
         <p>It's free and only takes a minute</p>
-        <form>
+        <form action="submitted.html">
           <div class="form-group">
             <label for="original-name">Full Name in Original Language</label>
             <input type="text" placeholder="王二狗" name="originalName" id="original-name" />
@@ -70,19 +70,40 @@
             <input type="text" placeholder="DD/MM/YYYY">
         </div>
           <div class="form-group">
+            
             <label for="" id="">Coaster Credit</label>
-            <input type="radio" id="30-70" name="coaster-credit">
-            <label for="30-70">30-70</label>
-            <input type="radio" id="70-100" name="coaster-credit">
-            <label for="70-100">70-100</label>
-            <input type="radio" id="100-150" name="coaster-credit">
-            <label for="100-150">100-150</label>
-            <input type="radio" id="150-200" name="coaster-credit">
-            <label for="150-200">150-200</label>
-            <input type="radio" id="200-300" name="coaster-credit">
-            <label for="200-300">200-300</label>
-            <input type="radio" id="above300" name="coaster-credit">
-            <label for="above300">Above 300</label>
+            <table>
+          <tr>
+            <td class="td1">
+            <input type="radio" id="30-70" name="coaster-credit"></td><td class="td2">
+            <label for="30-70">30-70</label></td>
+          </tr>
+          <tr>
+            <td class="td1">  
+            <input type="radio" id="70-100" name="coaster-credit"></td><td class="td2">
+            <label for="70-100">70-100</label></td>
+          </tr>
+          <tr>
+            <td class="td1">
+            <input type="radio" id="100-150" name="coaster-credit"></td><td class="td2">
+            <label for="100-150">100-150</label></td>
+          </tr>
+          <tr>
+            <td class="td1">
+            <input type="radio" id="150-200" name="coaster-credit"></td><td class="td2">
+            <label for="150-200">150-200</label></td>
+          </tr>
+          <tr>
+            <td class="td1">
+            <input type="radio" id="200-300" name="coaster-credit"></td><td class="td2">
+            <label for="200-300">200-300</label></td>
+          </tr>
+          <tr>
+            <td class="td1">
+            <input type="radio" id="above300" name="coaster-credit"></td><td class="td2">
+            <label for="above300">Above 300</label></td>
+            </tr>
+            </table>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
@@ -92,7 +113,7 @@
             <label for="password2">Confirm Password</label>
             <input type="password" name="pasword2" id="password2" />
           </div>
-          <button type="submit"  class="btn"><a href="submitted.html">Sign Up</a></button>
+          <button type="submit"  class="btn" >Sign Up</button>
           <p class="bottom-text">
             By clicking the Sign Up button, you agree to our
             <a href="#">Terms & Conditions</a> and
