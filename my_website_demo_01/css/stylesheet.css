@@ -24,12 +24,17 @@ ul{
 
 .button_1{
     height:25px;
-    background:#e8491d;
+    background:#e24a1f;
     border: 0;
     padding-left: 20px;
     padding-right: 20px;
-
     color: #ffffff;
+    cursor: pointer;
+}
+
+#join_us button:hover{
+    background: #a53516;
+    color:rgba(255, 255, 255, 0.5);
 }
 
 .dark{
