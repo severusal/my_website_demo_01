@@ -3,7 +3,7 @@ import os
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
 from app import app, db, bcrypt
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, RequestResetForm, ResetPasswordForm
 from app.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -12,7 +12,8 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route("/")
 @app.route("/home")
 def home():
-    posts = Post.query.all()
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page = page, per_page=5)
     return render_template('home.html', posts=posts)
 
 
@@ -64,12 +65,14 @@ def save_picture(form_picture):
     picture_fn = random_hex + f_ext
     picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
     #删除原来的照片
-    os.remove(os.path.join(app.root_path, 'static/profile_pics', current_user.image_file))
+    if current_user.image_file != "default.jpg":
+        os.remove(os.path.join(app.root_path, 'static/profile_pics', current_user.image_file))
+
     #让照片体积缩小
     #output_size = (125, 125)
     #i = Image.open(form_picture)
     #i.thumbnail(output_size)
-    #恢复照片→把“i”变成“Form_picture”
+    #恢复照片→把“i”变成“form_picture”
     form_picture.save(picture_path)
 
     return picture_fn
@@ -129,7 +132,42 @@ def update_post(post_id):
         db.session.commit()
         flash('Your post has been updated!', 'success')
         return redirect(url_for('post', post_id=post.id))
-    elif request.method =='GET':
+    elif request.method == 'GET':
         form.title.data = post.title
         form.content.data = post.content
-    return render_template('create_post.html', title = 'Update Post', form = form, legend="Update Post")
+    return render_template('create_post.html', title='Update Post', form=form, legend='Update Post')
+
+
+
+@app.route("/post/<int:post_id>/delete", methods=['POST'])
+@login_required
+def delete_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    if post.author != current_user:
+        abort(403)
+    db.session.delete(post)
+    db.session.commit()
+    flash('Your post have been deleted!', 'success')
+    return redirect(url_for('home'))
+
+
+
+
+@app.route("/user/<string:username>")
+def user_posts(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = Post.query.filter_by(author=user)\
+        .order_by(Post.date_posted.desc())\
+        .paginate(page=page, per_page=5)
+    return render_template('user_posts.html', posts=posts, user=user)
+
+
+
+@app.route("/reset_password", methods=['GET', 'POST'])
+@login_required
+def reset_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = RequestResetForm()
+    return render_template('reset_request.html', title='Reset Password', form = form)
